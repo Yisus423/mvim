@@ -21,3 +21,4 @@ opt.mouse = "a"           -- Active the mouse support
 opt.clipboard = "unnamedplus" -- Sync the system clipboard
 opt.cursorline = true     -- Highlight the current line
 opt.scrolloff = 8         -- Mantain the 8 lines margin to scroll
+opt.syntax = "on"         -- Syntax highlighting
