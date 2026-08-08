@@ -21,7 +21,7 @@ map("n", "<leader>fr", function() require("snacks.picker").recent() end, { desc 
 -- Terminals (snacks.terminal, Alt + h/v/i)
 map("n", "<M-h>", function() require("snacks.terminal").toggle(nil, { win = { position = "bottom" } }) end, { desc = "Terminal en split horizontal" })
 map("n", "<M-v>", function() require("snacks.terminal").toggle(nil, { win = { position = "right" } }) end, { desc = "Terminal en split vertical" })
-map("n", "<M-i>", function() require("snacks.terminal").toggle(nil, { win = { position = "float", width = 0.85, height = 0.7 } }) end, { desc = "Terminal flotante" })
+map("n", "<M-i>", function() require("snacks.terminal").toggle(nil, { win = { position = "float", width = 0.75, height = 0.6 } }) end, { desc = "Terminal flotante" })
 
 -- Buffers: cycle, list, close (the NvChad-tab replacement)
 map("n", "]b", function() vim.cmd.bnext() end, { desc = "Siguiente buffer" })
