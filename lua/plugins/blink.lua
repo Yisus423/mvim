@@ -19,7 +19,9 @@ return {
       nerd_font_variant = "mono",
     },
     sources = {
-      default = { "buffer", "path", "snippets" },
+      -- `lsp` is built-in (blink.cmp.sources.lsp); the rest are fallbacks.
+      -- buffer only shows when LSP returns no items.
+      default = { "lsp", "buffer", "path", "snippets" },
     },
     completion = {
       documentation = { auto_show = false },
