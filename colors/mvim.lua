@@ -8,8 +8,9 @@ local vim = vim
 -- Palette -----------------------------------------------------------------
 local C = {
   -- Core (from ~/dotfiles/colors.md)
-  bg       = "#0a0e14", -- Background
-  bg_alt   = "#1f2430", -- Background Alt (floats, menus, statusline)
+  bg       = "#0a0e14", -- Background (editor)
+  bg_float = "#10151d", -- Subtle elevation: floats, menus, panels
+  bg_alt   = "#1f2430", -- Active surfaces: statusline, winbar, tabline
   fg       = "#b3b1ad", -- Foreground
   gold     = "#e6b450", -- Primary: accents, keywords, active UI
   cyan     = "#59c2ff", -- Secondary: types, info, links
@@ -35,10 +36,10 @@ vim.o.background = "dark"
 -- Editor core -------------------------------------------------------------
 hl("Normal",        { fg = C.fg, bg = C.bg })
 hl("NormalNC",      { fg = C.fg, bg = C.bg })
-hl("NormalFloat",   { fg = C.fg, bg = C.bg_alt })
-hl("FloatNormal",   { fg = C.fg, bg = C.bg_alt })
-hl("FloatBorder",   { fg = C.border, bg = C.bg_alt })
-hl("FloatTitle",    { fg = C.gold, bg = C.bg_alt })
+hl("NormalFloat",   { fg = C.fg, bg = C.bg_float })
+hl("FloatNormal",   { fg = C.fg, bg = C.bg_float })
+hl("FloatBorder",   { fg = C.border, bg = C.bg_float })
+hl("FloatTitle",    { fg = C.gold, bg = C.bg_float })
 hl("LineNr",        { fg = C.disabled, bg = C.bg })
 hl("CursorLineNr",  { fg = C.gold, bg = C.bg })
 hl("CursorLine",    { bg = C.line })
@@ -72,7 +73,7 @@ hl("QuickFixLine",  { fg = C.gold, bg = C.selection })
 -- Selection and menus ------------------------------------------------------
 hl("Visual",        { bg = C.selection })
 hl("VisualNOS",     { bg = C.selection })
-hl("Pmenu",         { fg = C.fg, bg = C.bg_alt })
+hl("Pmenu",         { fg = C.fg, bg = C.bg_float })
 hl("PmenuSel",      { fg = C.bg, bg = C.gold })
 hl("PmenuSbar",     { bg = C.bg })
 hl("PmenuThumb",    { bg = C.disabled })
@@ -234,22 +235,23 @@ hl("SpellRare",  { undercurl = true, sp = C.purple })
 -- Plugin UI (snacks.nvim windows, picker, terminal, blink.cmp menus) -------
 -- snacks sets these with default=true, so our definitions win and keep the
 -- Ayu Gold identity instead of falling back to its built-in defaults.
+-- Surface hierarchy: editor (bg) < floats (bg_float) < bars (bg_alt).
 -- NOTE: picker chrome uses SnacksPicker* groups; other floats use Snacks*.
-hl("FloatFooter",           { fg = C.disabled, bg = C.bg_alt })
+hl("FloatFooter",           { fg = C.disabled, bg = C.bg_float })
 hl("SnacksBackdrop",        { bg = C.bg })
-hl("SnacksNormal",          { fg = C.fg, bg = C.bg_alt })
-hl("SnacksNormalNC",        { fg = C.disabled, bg = C.bg_alt })
-hl("SnacksTitle",           { fg = C.gold, bg = C.bg_alt })
-hl("SnacksFooter",          { fg = C.disabled, bg = C.bg_alt })
-hl("SnacksWinBar",          { fg = C.gold, bg = C.bg_alt })
-hl("SnacksWinBarNC",        { fg = C.disabled, bg = C.bg_alt })
-hl("SnacksWinSeparator",    { fg = C.border, bg = C.bg_alt })
+hl("SnacksNormal",          { fg = C.fg, bg = C.bg_float })
+hl("SnacksNormalNC",        { fg = C.disabled, bg = C.bg_float })
+hl("SnacksTitle",           { fg = C.gold, bg = C.bg_float })
+hl("SnacksFooter",          { fg = C.disabled, bg = C.bg_float })
+hl("SnacksWinBar",          { fg = C.gold, bg = C.bg_float })
+hl("SnacksWinBarNC",        { fg = C.disabled, bg = C.bg_float })
+hl("SnacksWinSeparator",    { fg = C.border, bg = C.bg_float })
 hl("SnacksWinKey",          { fg = C.gold })
 hl("SnacksWinKeyDesc",      { fg = C.fg })
-hl("SnacksPicker",          { fg = C.fg, bg = C.bg_alt })
-hl("SnacksPickerTitle",     { fg = C.gold, bg = C.bg_alt })
-hl("SnacksPickerBorder",    { fg = C.border, bg = C.bg_alt })
-hl("SnacksPickerFooter",    { fg = C.disabled, bg = C.bg_alt })
+hl("SnacksPicker",          { fg = C.fg, bg = C.bg_float })
+hl("SnacksPickerTitle",     { fg = C.gold, bg = C.bg_float })
+hl("SnacksPickerBorder",    { fg = C.border, bg = C.bg_float })
+hl("SnacksPickerFooter",    { fg = C.disabled, bg = C.bg_float })
 hl("SnacksPickerCursorLine",{ bg = C.line })
-hl("BlinkCmpMenuBorder",    { fg = C.border, bg = C.bg_alt })
-hl("BlinkCmpDocBorder",     { fg = C.border, bg = C.bg_alt })
+hl("BlinkCmpMenuBorder",    { fg = C.border, bg = C.bg_float })
+hl("BlinkCmpDocBorder",     { fg = C.border, bg = C.bg_float })
