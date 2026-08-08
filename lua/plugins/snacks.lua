@@ -49,5 +49,6 @@ return {
     notifier = { enabled = true },
     picker = { enabled = true },
     quickfile = { enabled = true },
+    terminal = { enabled = true },
   },
 }
