@@ -95,7 +95,6 @@ local function bs(key)
 end
 vim.keymap.set("i", "<BS>", function() return bs("<BS>") end, {
   expr = true,
-  replace_keycodes = false,
   desc = "Auto-pair: delete empty pair",
 })
 
