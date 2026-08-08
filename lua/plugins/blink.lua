@@ -13,8 +13,13 @@ return {
   end,
   opts = {
     -- 'default': C-space trigger, C-n/C-p next/prev, C-e hide, C-y accept.
-    -- Tab/Shift-Tab snippet placeholder navigation is built in.
-    keymap = { preset = "default" },
+    -- Extended: CR accepts (no stray newline), Tab/S-Tab step snippet fields.
+    keymap = {
+      preset = "default",
+      ["<CR>"] = { "accept", "fallback" },
+      ["<Tab>"] = { "snippet_forward", "fallback" },
+      ["<S-Tab>"] = { "snippet_backward", "fallback" },
+    },
     appearance = {
       nerd_font_variant = "mono",
     },
