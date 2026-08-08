@@ -45,12 +45,17 @@ end
 
 ---All declared LSP configs, deduplicated by server name.
 --Iterates the langs list (stable order); on a name clash the last entry wins.
+--A language may declare `lsp` as a single table or a list of tables; the
+--single form is wrapped so every entry is visited.
 function M.lsp_configs()
   local configs = {}
   for _, name in ipairs(langs) do
     local lsp = M[name] and M[name].lsp
     if type(lsp) == "table" then
-      configs[lsp.name] = lsp
+      local list = vim.islist(lsp) and lsp or { lsp }
+      for _, conf in ipairs(list) do
+        configs[conf.name] = conf
+      end
     end
   end
   return configs
