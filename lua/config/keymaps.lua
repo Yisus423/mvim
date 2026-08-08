@@ -27,3 +27,9 @@ map("n", "<M-i>", function() require("snacks.terminal").toggle(nil, { win = { po
 map("n", "]b", function() vim.cmd.bnext() end, { desc = "Siguiente buffer" })
 map("n", "[b", function() vim.cmd.bprev() end, { desc = "Anterior buffer" })
 map("n", "<leader>bd", function() vim.cmd.bd() end, { desc = "Cerrar buffer" })
+
+-- LSP: diagnostics navigation + detail
+map("n", "K", vim.lsp.buf.hover, { desc = "Detalle bajo el cursor (LSP)" })
+map("n", "[d", vim.diagnostic.goto_prev, { desc = "Diagnóstico anterior" })
+map("n", "]d", vim.diagnostic.goto_next, { desc = "Diagnóstico siguiente" })
+map("n", "<leader>d", vim.diagnostic.open_float, { desc = "Detalle de diagnóstico (flotante)" })

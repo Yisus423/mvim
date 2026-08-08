@@ -33,3 +33,13 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*",
   callback = format_on_save,
 })
+
+-- Diagnostics: show the full message as a virtual line under the cursor's
+-- line (nvim 0.11+ default is virtual_text=false, so without this the E/W/H
+-- signs are visible but the message never is). Only render for the current
+-- line to keep the buffer clean.
+vim.diagnostic.config({
+  virtual_lines = { current_line = true },
+  signs = true,
+  update_in_insert = false,
+})
