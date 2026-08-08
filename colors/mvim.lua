@@ -234,6 +234,7 @@ hl("SpellRare",  { undercurl = true, sp = C.purple })
 -- Plugin UI (snacks.nvim windows, picker, terminal, blink.cmp menus) -------
 -- snacks sets these with default=true, so our definitions win and keep the
 -- Ayu Gold identity instead of falling back to its built-in defaults.
+-- NOTE: picker chrome uses SnacksPicker* groups; other floats use Snacks*.
 hl("FloatFooter",           { fg = C.disabled, bg = C.bg_alt })
 hl("SnacksBackdrop",        { bg = C.bg })
 hl("SnacksNormal",          { fg = C.fg, bg = C.bg_alt })
@@ -245,5 +246,10 @@ hl("SnacksWinBarNC",        { fg = C.disabled, bg = C.bg_alt })
 hl("SnacksWinSeparator",    { fg = C.border, bg = C.bg_alt })
 hl("SnacksWinKey",          { fg = C.gold })
 hl("SnacksWinKeyDesc",      { fg = C.fg })
+hl("SnacksPicker",          { fg = C.fg, bg = C.bg_alt })
+hl("SnacksPickerTitle",     { fg = C.gold, bg = C.bg_alt })
+hl("SnacksPickerBorder",    { fg = C.border, bg = C.bg_alt })
+hl("SnacksPickerFooter",    { fg = C.disabled, bg = C.bg_alt })
+hl("SnacksPickerCursorLine",{ bg = C.line })
 hl("BlinkCmpMenuBorder",    { fg = C.border, bg = C.bg_alt })
 hl("BlinkCmpDocBorder",     { fg = C.border, bg = C.bg_alt })
