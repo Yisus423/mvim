@@ -30,6 +30,6 @@ map("n", "<leader>bd", function() vim.cmd.bd() end, { desc = "Cerrar buffer" })
 
 -- LSP: diagnostics navigation + detail
 map("n", "K", vim.lsp.buf.hover, { desc = "Detalle bajo el cursor (LSP)" })
-map("n", "[d", vim.diagnostic.goto_prev, { desc = "Diagnóstico anterior" })
-map("n", "]d", vim.diagnostic.goto_next, { desc = "Diagnóstico siguiente" })
+map("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end, { desc = "Diagnóstico anterior" })
+map("n", "]d", function() vim.diagnostic.jump({ count = 1 }) end, { desc = "Diagnóstico siguiente" })
 map("n", "<leader>d", vim.diagnostic.open_float, { desc = "Detalle de diagnóstico (flotante)" })
