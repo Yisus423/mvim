@@ -1,4 +1,5 @@
 require("config.options")
 vim.cmd.colorscheme("mvim")
 require("config.lazy")
+require("config.lsp")
 require("config.keymaps")

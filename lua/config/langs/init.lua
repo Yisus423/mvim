@@ -43,4 +43,17 @@ function M.filetypes()
   return vim.tbl_keys(filetypes)
 end
 
+---All declared LSP configs, deduplicated by server name.
+--Iterates the langs list (stable order); on a name clash the last entry wins.
+function M.lsp_configs()
+  local configs = {}
+  for _, name in ipairs(langs) do
+    local lsp = M[name] and M[name].lsp
+    if type(lsp) == "table" then
+      configs[lsp.name] = lsp
+    end
+  end
+  return configs
+end
+
 return M
