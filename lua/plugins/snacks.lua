@@ -50,5 +50,14 @@ return {
     picker = { enabled = true },
     quickfile = { enabled = true },
     terminal = { enabled = true },
+
+    -- Indent guides + scope highlight (snacks.indent).
+    indent = { enabled = true, scope = { enabled = true } },
+
+    -- Smooth scrolling (snacks.scroll); terminals are excluded by default.
+    scroll = { enabled = true },
+
+    -- Highlight LSP references of the word under the cursor (snacks.words).
+    words = { enabled = true },
   },
 }
