@@ -42,10 +42,10 @@ function M.statusline()
   local left = "%#Title# " .. mode_str .. "%*  " .. file .. branch
   local right = ""
   if errs > 0 then
-    right = right .. ("%#DiagnosticError# E%d %*"):format(errs)
+    right = right .. ("%%#DiagnosticError# E%d %%*"):format(errs)
   end
   if warns > 0 then
-    right = right .. ("%#DiagnosticWarn#W%d %*"):format(warns)
+    right = right .. ("%%#DiagnosticWarn#W%d %%*"):format(warns)
   end
   right = right .. ("  %d:%d  %s "):format(line, col, pct)
 
