@@ -5,6 +5,13 @@ opt.number = true         -- Show line numbers
 opt.relativenumber = true -- Relative numbers for quick jumps
 opt.signcolumn = "yes"    -- Always show the column simbols (avoid screen jumps)
 
+-- Undo history persists across sessions (undo file in .local/state/mvim)
+opt.undofile = true
+
+-- Splits open below / to the right (modern behavior, not classic Vim)
+opt.splitbelow = true
+opt.splitright = true
+
 -- Tabs and indentations
 opt.tabstop = 2           -- 2 spaces per tab
 opt.shiftwidth = 2        -- 2 spaces for automatic indentation
