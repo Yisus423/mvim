@@ -34,6 +34,17 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   callback = format_on_save,
 })
 
+-- Inlay hints (inline types): enable per buffer when an attached server
+-- supports them. Ergonomics — types visible without jumping to the symbol.
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client and client.server_capabilities.inlayHintProvider then
+      vim.lsp.inlay_hint.enable(true, { bufnr = args.buf })
+    end
+  end,
+})
+
 -- Diagnostics: show the full message as a virtual line under the cursor's
 -- line (nvim 0.11+ default is virtual_text=false, so without this the E/W/H
 -- signs are visible but the message never is). Only render for the current

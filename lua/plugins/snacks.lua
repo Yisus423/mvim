@@ -11,6 +11,10 @@ return {
     vim.o.laststatus = 3
     vim.o.statusline = "%!v:lua.require('config.statusline').statusline()"
     require("snacks").setup(opts)
+
+    -- Dim inactive windows from the start (ergonomics: your eye finds the
+    -- active window without effort). Snacks.toggle.dim() stays available.
+    Snacks.dim.enable()
   end,
 
   opts = {
@@ -65,5 +69,10 @@ return {
 
     -- Floating input dialog (base for picker inputs and other prompts).
     input = { enabled = true },
+
+    -- Status column: unifies signcolumn + folds + git signs in one coherent
+    -- column (snacks sets vim.o.statuscolumn when enabled). gitsigns signs
+    -- are matched via the GitSign hl pattern by default.
+    statuscolumn = { enabled = true },
   },
 }
