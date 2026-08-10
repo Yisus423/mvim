@@ -12,7 +12,7 @@ map("i", "jk", "<ESC>", { desc = "Salir del modo insertar" })
 -- in some terminals; modern ones pass it through, and 'nostartofline' is not
 -- needed since we write in place.
 map("n", "<C-s>", function() vim.cmd.write() end, { desc = "Guardar archivo" })
-map("i", "<C-s>", "<ESC><Cmd>write<CR>", { desc = "Guardar archivo" })
+map("i", "<C-s>", "<C-o>:write<CR>", { desc = "Guardar archivo" })
 
 -- Mantain selection when indent blocks in visual mode
 map("v", "<", "<gv")
