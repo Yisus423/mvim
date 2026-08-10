@@ -3,8 +3,6 @@
 -- Built on the ayu-dark palette, with gold (#e6b450) as the primary accent.
 -- Every group is set explicitly; nothing is inherited from a distro.
 
-local vim = vim
-
 -- Palette -----------------------------------------------------------------
 local C = {
   -- Core (from ~/dotfiles/colors.md)
