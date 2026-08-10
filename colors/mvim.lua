@@ -253,3 +253,11 @@ hl("SnacksPickerFooter",    { fg = C.disabled, bg = C.bg_float })
 hl("SnacksPickerCursorLine",{ bg = C.line })
 hl("BlinkCmpMenuBorder",    { fg = C.border, bg = C.bg_float })
 hl("BlinkCmpDocBorder",     { fg = C.border, bg = C.bg_float })
+
+-- which-key.nvim popup -------------------------------------------------
+-- Group icons set as plain strings render with WhichKeyIcon, whose built-in
+-- default links to @markup.link (cyan + underline) and clashes with the Ayu
+-- Gold identity. Own it: gold, no underline. which-key sets this with
+-- default=true, so our definition wins. The other WhichKey* groups already
+-- link to gold/neutral groups, so no override is needed.
+hl("WhichKeyIcon", { fg = C.gold })
