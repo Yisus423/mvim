@@ -51,6 +51,9 @@ return {
     quickfile = { enabled = true },
     terminal = { enabled = true },
 
+    -- Disable heavy features (fold, syntax, completion) on big files.
+    bigfile = { enabled = true },
+
     -- Indent guides + scope highlight (snacks.indent).
     indent = { enabled = true, scope = { enabled = true } },
 
@@ -61,5 +64,6 @@ return {
     words = { enabled = true },
 
     -- Floating input dialog (base for picker inputs and other prompts).
-    input = { enabled = true },  },
+    input = { enabled = true },
+  },
 }
