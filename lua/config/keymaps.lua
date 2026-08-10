@@ -34,6 +34,29 @@ map("n", "]b", function() vim.cmd.bnext() end, { desc = "Siguiente buffer" })
 map("n", "[b", function() vim.cmd.bprev() end, { desc = "Anterior buffer" })
 map("n", "<leader>bd", function() require("snacks").bufdelete() end, { desc = "Cerrar buffer" })
 
+-- Git: stage/unstage via the status picker, commit only what is staged.
+-- <leader>ga: snacks git_status picker — <Tab> toggles stage (multi-select
+-- supported), <C-r> restores. <leader>gc commits WITHOUT `git add -A`: you
+-- choose what goes in the picker, the commit respects your selection.
+map("n", "<leader>ga", function() require("snacks.picker").git_status() end, { desc = "Git status (stage/unstage)" })
+map("n", "<leader>gc", function()
+  require("snacks").input({
+    prompt = "Mensaje de commit (solo staged):",
+    default = "",
+    on_submit = function(msg)
+      if not msg or msg == "" then
+        return
+      end
+      vim.fn.system({ "git", "commit", "-m", msg })
+      if vim.v.shell_error ~= 0 then
+        require("snacks").notify.error("El commit falló", { title = "Git" })
+      else
+        require("snacks").notify.info("Commit realizado", { title = "Git" })
+      end
+    end,
+  })
+end, { desc = "Commit (solo staged)" })
+
 -- LSP: diagnostics navigation + detail
 map("n", "K", vim.lsp.buf.hover, { desc = "Detalle bajo el cursor (LSP)" })
 map("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end, { desc = "Diagnóstico anterior" })
