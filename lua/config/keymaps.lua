@@ -24,10 +24,14 @@ map("n", "<leader>fg", function() require("snacks.picker").grep() end, { desc = 
 map("n", "<leader>fb", function() require("snacks.picker").buffers() end, { desc = "Listar buffers" })
 map("n", "<leader>fr", function() require("snacks.picker").recent() end, { desc = "Archivos recientes" })
 
--- Terminals (snacks.terminal, Alt + h/v/i)
+-- Terminals (snacks.terminal, Alt + h/v/i). The same key toggles: open
+-- from normal mode, hide from inside (mode `t` escapes to normal first).
 map("n", "<M-h>", function() require("snacks.terminal").toggle(nil, { win = { position = "bottom" } }) end, { desc = "Terminal en split horizontal" })
 map("n", "<M-v>", function() require("snacks.terminal").toggle(nil, { win = { position = "right" } }) end, { desc = "Terminal en split vertical" })
 map("n", "<M-i>", function() require("snacks.terminal").toggle(nil, { win = { position = "float", width = 0.75, height = 0.6 } }) end, { desc = "Terminal flotante" })
+map("t", "<M-h>", "<C-\\><C-n><Cmd>lua require('snacks.terminal').toggle(nil, { win = { position = 'bottom' } })<CR>", { desc = "Ocultar terminal (split horizontal)" })
+map("t", "<M-v>", "<C-\\><C-n><Cmd>lua require('snacks.terminal').toggle(nil, { win = { position = 'right' } })<CR>", { desc = "Ocultar terminal (split vertical)" })
+map("t", "<M-i>", "<C-\\><C-n><Cmd>lua require('snacks.terminal').toggle(nil, { win = { position = 'float', width = 0.75, height = 0.6 } })<CR>", { desc = "Ocultar terminal flotante" })
 
 -- Buffers: cycle, list, close (the NvChad-tab replacement)
 map("n", "]b", function() vim.cmd.bnext() end, { desc = "Siguiente buffer" })
