@@ -2,6 +2,11 @@
 -- Only the modules we need are enabled; the rest stay off (image, indent, scope, etc.).
 -- NOTE: snacks dropped its statusline module in v2.x, so the statusline is a native
 -- hand-rolled one (lua/config/statusline.lua) wired up in `config` below.
+
+-- Nerd Font glyphs (fa set), verified present in JetBrainsMono Nerd Font.
+-- Built via nr2char so the source stays ASCII (no multibyte literal risk).
+local ic = vim.fn.nr2char
+
 return {
   "folke/snacks.nvim",
   priority = 1000,
@@ -44,12 +49,12 @@ return {
 ██║ ╚═╝ ██║ ╚████╔╝ ██║██║ ╚═╝ ██║
 ╚═╝     ╚═╝  ╚═══╝  ╚═╝╚═╝     ╚═╝]],
         keys = {
-          { key = "f", desc = "Buscar archivos", action = ":lua Snacks.picker.files()" },
-          { key = "g", desc = "Buscar en archivos", action = ":lua Snacks.picker.grep()" },
-          { key = "r", desc = "Archivos recientes", action = ":lua Snacks.picker.recent()" },
-          { key = "b", desc = "Listar buffers", action = ":lua Snacks.picker.buffers()" },
-          { key = "c", desc = "Config mvim", action = ":lua Snacks.picker.files({ cwd = vim.fn.stdpath('config') })" },
-          { key = "q", desc = "Salir", action = ":qa" },
+          { icon = ic(0xf016) .. " ", key = "f", desc = "Buscar archivos", action = ":lua Snacks.picker.files()" },
+          { icon = ic(0xf002) .. " ", key = "g", desc = "Buscar en archivos", action = ":lua Snacks.picker.grep()" },
+          { icon = ic(0xf017) .. " ", key = "r", desc = "Archivos recientes", action = ":lua Snacks.picker.recent()" },
+          { icon = ic(0xf0db) .. " ", key = "b", desc = "Listar buffers", action = ":lua Snacks.picker.buffers()" },
+          { icon = ic(0xf013) .. " ", key = "c", desc = "Config mvim", action = ":lua Snacks.picker.files({ cwd = vim.fn.stdpath('config') })" },
+          { icon = ic(0xf011) .. " ", key = "q", desc = "Salir", action = ":qa" },
         },
       },
       sections = {
