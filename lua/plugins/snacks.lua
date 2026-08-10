@@ -59,5 +59,7 @@ return {
 
     -- Highlight LSP references of the word under the cursor (snacks.words).
     words = { enabled = true },
-  },
+
+    -- Floating input dialog (base for picker inputs and other prompts).
+    input = { enabled = true },  },
 }
