@@ -30,3 +30,8 @@ opt.cursorline = true     -- Highlight the current line
 opt.scrolloff = 8         -- Mantain the 8 lines margin to scroll
 opt.syntax = "on"         -- Syntax highlighting
 opt.whichwrap = "h,l,<,>,[,]" -- Allow h/l and arrow keys to wrap across lines
+
+-- Responsiveness: CursorHold events (gitsigns refresh) fire at 300ms instead
+-- of 4000ms; leader keymaps respond after 400ms instead of a full second.
+opt.updatetime = 300
+opt.timeoutlen = 400
