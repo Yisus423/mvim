@@ -32,7 +32,7 @@ map("n", "<M-i>", function() require("snacks.terminal").toggle(nil, { win = { po
 -- Buffers: cycle, list, close (the NvChad-tab replacement)
 map("n", "]b", function() vim.cmd.bnext() end, { desc = "Siguiente buffer" })
 map("n", "[b", function() vim.cmd.bprev() end, { desc = "Anterior buffer" })
-map("n", "<leader>bd", function() vim.cmd.bd() end, { desc = "Cerrar buffer" })
+map("n", "<leader>bd", function() require("snacks").bufdelete() end, { desc = "Cerrar buffer" })
 
 -- LSP: diagnostics navigation + detail
 map("n", "K", vim.lsp.buf.hover, { desc = "Detalle bajo el cursor (LSP)" })
