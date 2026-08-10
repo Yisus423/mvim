@@ -50,9 +50,17 @@ map("n", "<leader>gc", function()
       if not msg or msg == "" then
         return
       end
-      vim.fn.system({ "git", "commit", "-m", msg })
-      if vim.v.shell_error ~= 0 then
-        require("snacks").notify.error("El commit falló", { title = "Git" })
+      -- Run git in the repo that owns the current buffer, not in the
+      -- process cwd: opening nvim from outside the repo would otherwise
+      -- commit the wrong repository (or none).
+      local root = vim.fs.root(0, ".git")
+      if not root then
+        require("snacks").notify.error("No hay repositorio git para este buffer", { title = "Git" })
+        return
+      end
+      local result = vim.system({ "git", "-C", root, "commit", "-m", msg }, { text = true }):wait()
+      if result.code ~= 0 then
+        require("snacks").notify.error(vim.trim(result.stderr or "El commit falló"), { title = "Git" })
       else
         require("snacks").notify.info("Commit realizado", { title = "Git" })
       end
