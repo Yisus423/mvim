@@ -8,6 +8,12 @@ map("n", "<C-l>", "<C-w>l", { desc = "Ir a ventana derecha" })
 -- Escape of insert mode with 'jk'
 map("i", "jk", "<ESC>", { desc = "Salir del modo insertar" })
 
+-- Save with Ctrl+s (normal + insert). Note: <C-s> is XON/XOFF flow control
+-- in some terminals; modern ones pass it through, and 'nostartofline' is not
+-- needed since we write in place.
+map("n", "<C-s>", function() vim.cmd.write() end, { desc = "Guardar archivo" })
+map("i", "<C-s>", "<ESC><Cmd>write<CR>", { desc = "Guardar archivo" })
+
 -- Mantain selection when indent blocks in visual mode
 map("v", "<", "<gv")
 map("v", ">", ">gv")
