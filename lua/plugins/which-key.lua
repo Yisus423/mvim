@@ -8,7 +8,6 @@ return {
       { "<leader>f", group = "+buscar" },
       { "<leader>b", group = "+buffer" },
       { "<leader>g", group = "+git" },
-      { "<leader>d", group = "+diagnóstico" },
       { "<leader>r", group = "+refactor" },
       { "<leader>c", group = "+código" },
     },
