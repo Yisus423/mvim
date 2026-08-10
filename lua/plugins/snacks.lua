@@ -12,9 +12,22 @@ return {
     vim.o.statusline = "%!v:lua.require('config.statusline').statusline()"
     require("snacks").setup(opts)
 
-    -- Dim inactive windows from the start (ergonomics: your eye finds the
-    -- active window without effort). Snacks.toggle.dim() stays available.
-    Snacks.dim.enable()
+    -- Dim inactive windows only while in Insert mode: a focus aid while
+    -- typing, without fighting you while reading/navigating. Snacks.toggle.dim()
+    -- stays available for a manual on/off.
+    local group = vim.api.nvim_create_augroup("snacks_dim_insert", { clear = true })
+    vim.api.nvim_create_autocmd("InsertEnter", {
+      group = group,
+      callback = function()
+        Snacks.dim.enable()
+      end,
+    })
+    vim.api.nvim_create_autocmd("InsertLeave", {
+      group = group,
+      callback = function()
+        Snacks.dim.disable()
+      end,
+    })
   end,
 
   opts = {
