@@ -3,6 +3,7 @@
 -- nvim-treesitter) read this instead of hardcoding a language list.
 -- Adding a language = adding one file here.
 local langs = {
+  "c",
   "go",
   "python",
   "bash",
