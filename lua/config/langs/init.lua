@@ -5,6 +5,7 @@
 local langs = {
   "c",
   "go",
+  "toml",
   "python",
   "bash",
   "nim",
