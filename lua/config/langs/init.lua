@@ -11,6 +11,7 @@ local langs = {
   "nim",
   "zig",
   "javascript",
+  "lua",
 }
 
 local M = {}
