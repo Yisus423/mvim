@@ -12,6 +12,7 @@ return {
       { "<leader>g", group = "+git", icon = ic(0xf126) },
       { "<leader>r", group = "+refactor", icon = ic(0xf0ad) },
       { "<leader>c", group = "+código", icon = ic(0xf121) },
+      { "<leader>n", group = "+notas", icon = ic(0xf02d) },
     },
   },
 }

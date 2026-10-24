@@ -80,3 +80,15 @@ map("n", "gr", vim.lsp.buf.references, { desc = "Referencias del símbolo" })
 map("n", "gi", vim.lsp.buf.implementation, { desc = "Ir a la implementación" })
 map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Renombrar símbolo" })
 map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action (LSP)" })
+
+-- Notes (obsidian.nvim): one group, all actions over the active vault.
+-- <CR> on a link, [o/]o to move between links and <leader>ca for note code
+-- actions are set buffer-local by the plugin itself.
+map("n", "<leader>nf", "<cmd>Obsidian quick_switch<cr>", { desc = "Buscar nota" })
+map("n", "<leader>nn", "<cmd>Obsidian new<cr>", { desc = "Nueva nota" })
+map("n", "<leader>nd", "<cmd>Obsidian today<cr>", { desc = "Nota diaria (hoy)" })
+map("n", "<leader>nt", "<cmd>Obsidian new_from_template<cr>", { desc = "Nueva nota desde plantilla" })
+map("n", "<leader>nb", "<cmd>Obsidian backlinks<cr>", { desc = "Backlinks de la nota" })
+map("n", "<leader>ng", "<cmd>Obsidian tags<cr>", { desc = "Buscar por tag" })
+map("n", "<leader>no", "<cmd>Obsidian open<cr>", { desc = "Abrir nota en Obsidian" })
+map("v", "<leader>nl", "<cmd>Obsidian link<cr>", { desc = "Enlazar selección a una nota" })
